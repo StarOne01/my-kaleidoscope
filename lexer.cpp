@@ -42,9 +42,24 @@ static int gettok() {
     } while (isalnum(getchar()) || currentChar == '_');
 
     if (curIdentifier == "def")
-        return Token::tokDef;
+      return Token::tokDef;
     else if (curIdentifier == "extern")
-        return Token::tokExtern;
+      return Token::tokExtern;
     return Token::tokIdentifier;
+  }
+
+  if (currentChar == '#') {
+    do
+      currentChar = getchar();
+    while (currentChar != '\n' || currentChar != '\r' || currentChar != EOF);
+
+    if (currentChar != EOF)
+      return gettok();
+    else
+      return Token::tokEof;
+
+    int ThisChar = currentChar;
+    currentChar = getchar();
+    return ThisChar;
   }
 }
