@@ -12,7 +12,7 @@ enum Token {
 };
 
 // If it is a value or identifier, store them!
-static int numVal;
+static double numVal;
 static std::string curIdentifier;
 
 // Now we get each token and figure what kind is this token
@@ -29,5 +29,7 @@ static int gettok() {
       numValStr += currentChar;
       currentChar = getchar();
     } while (isdigit(getchar()) || currentChar == '.');
+
+    numVal = strtod(numValStr.c_str(), nullptr);
   }
 }
