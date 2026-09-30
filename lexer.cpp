@@ -31,5 +31,6 @@ static int gettok() {
     } while (isdigit(getchar()) || currentChar == '.');
 
     numVal = strtod(numValStr.c_str(), nullptr);
+    return Token::tokNum;
   }
 }
