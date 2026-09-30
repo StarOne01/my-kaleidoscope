@@ -26,7 +26,7 @@ static int gettok() {
     std::string numValStr = ""; // we need a temporary location to show the
                                 // const char thing before we convert to double
     do {
-      numValStr += currentChar;
+      numValStr += currentChar; // string are magic! lol
       currentChar = getchar();
     } while (isdigit(getchar()) || currentChar == '.');
 
@@ -35,17 +35,17 @@ static int gettok() {
   }
 
   if (isalpha(currentChar) || currentChar == '_') {
-    curIdentifier = "";
+    curIdentifier = ""; // reset old ones maybe
     do {
-      curIdentifier += currentChar;
+      curIdentifier += currentChar; // string are magic! lol 2
       currentChar = getchar();
     } while (isalnum(getchar()) || currentChar == '_');
 
     if (curIdentifier == "def")
-      return Token::tokDef;
+      return Token::tokDef; // Dishum
     else if (curIdentifier == "extern")
-      return Token::tokExtern;
-    return Token::tokIdentifier;
+      return Token::tokExtern;   // Dishum
+    return Token::tokIdentifier; // Dishum
   }
 
   if (currentChar == '#') {
@@ -55,11 +55,12 @@ static int gettok() {
 
     if (currentChar != EOF)
       return gettok();
-    else
-      return Token::tokEof;
-
-    int ThisChar = currentChar;
-    currentChar = getchar();
-    return ThisChar;
   }
+  
+  if (currentChar == EOF)
+    return Token::tokEof;
+
+  int ThisChar = currentChar;
+  currentChar = getchar();
+  return ThisChar;
 }
