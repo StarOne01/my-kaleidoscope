@@ -11,7 +11,7 @@ enum Token {
   tokEof = -5,
 };
 
-// If it is a value or identifier, store them!
+// If it is a value, identifier or keyword, store them!
 static double numVal;
 static std::string curIdentifier;
 
@@ -32,5 +32,19 @@ static int gettok() {
 
     numVal = strtod(numValStr.c_str(), nullptr);
     return Token::tokNum;
+  }
+
+  if (isalpha(currentChar) || currentChar == '_') {
+    curIdentifier = "";
+    do {
+      curIdentifier += currentChar;
+      currentChar = getchar();
+    } while (isalnum(getchar()) || currentChar == '_');
+
+    if (curIdentifier == "def")
+        return Token::tokDef;
+    else if (curIdentifier == "extern")
+        return Token::tokExtern;
+    return Token::tokIdentifier;
   }
 }
