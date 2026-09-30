@@ -56,11 +56,11 @@ static int gettok() {
     if (currentChar != EOF)
       return gettok();
   }
-  
+
   if (currentChar == EOF)
     return Token::tokEof;
 
-  int ThisChar = currentChar;
+  int ThisChar = currentChar; // we do't know what it is, probably some math expression, so we return it's ascii
   currentChar = getchar();
   return ThisChar;
 }
