@@ -13,7 +13,7 @@ Source code goes in one end. Each stage hands something simpler to the next.
 
 | Stage | What it does | Status |
 | ----- | ------------ | ------ |
-| Lexer | Chops raw characters into tokens | done |
+| Lexer | Chops raw characters into tokens | done, i guess |
 | Parser | Builds an AST from the tokens | Planned |
 | Codegen | Turns the AST into LLVM IR | Planned |
 | Optimizer | Runs a few LLVM passes over the IR | Planned |
