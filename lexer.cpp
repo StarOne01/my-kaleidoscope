@@ -1,5 +1,6 @@
 #include "string"
 
+namespace lexer {
 // What kind of token does the language accept
 enum Token {
   tokIdentifier = -1,
@@ -60,7 +61,9 @@ static int gettok() {
   if (currentChar == EOF)
     return Token::tokEof;
 
-  int ThisChar = currentChar; // we do't know what it is, probably some math expression, so we return it's ascii
+  int ThisChar = currentChar; // we do't know what it is, probably some math
+                              // expression, so we return it's ascii
   currentChar = getchar();
   return ThisChar;
 }
+} // namespace lexer
