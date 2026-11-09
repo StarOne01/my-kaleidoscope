@@ -5,7 +5,7 @@
 
 My from-scratch build of Kaleidoscope, the toy language from the LLVM tutorial, written in C++. Started 30 Sep 2026. Seven commits in, and the lexer already has more comments than logic. That's on purpose.
 
-**Status: day one.** Expect rough edges, bugs I haven't found yet, and commit messages with too many exclamation marks.
+**Status: day one. hhaaa** Expect rough edges, bugs I haven't found yet, and commit messages with too many exclamation marks.
 
 ## The pipeline
 
